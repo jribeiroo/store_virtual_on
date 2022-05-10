@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1007368656107",
+    "project_id": "store-virtual-fbeae",
+    "storage_bucket": "store-virtual-fbeae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1007368656107:android:527bc1fa6d89768c761aae",
+        "android_client_info": {
+          "package_name": "br.com.jnribeiro.store_virtual_pro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1007368656107-jf42qjlc0kqdjt5gjraksqs5cb4l8i4d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAP_Odg9ZARhRYxyyvXjR-FMwCAqgEzkBQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1007368656107-jf42qjlc0kqdjt5gjraksqs5cb4l8i4d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
