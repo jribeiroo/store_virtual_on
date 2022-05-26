@@ -3,11 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:store_virtual_pro/screens/base/base_screend.dart';
 
-
-
 void main() async {
   runApp(const MyApp());
-
 }
 
 class MyApp extends StatelessWidget {
@@ -25,4 +22,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
