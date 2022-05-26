@@ -16,7 +16,10 @@ class MyApp extends StatelessWidget {
       title: 'Loja do jorge',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+      primarySwatch: Colors.teal,
+       scaffoldBackgroundColor: Colors.teal,
+       appBarTheme: const AppBarTheme(elevation:0),
+       visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: BaseScreen(),
     );
