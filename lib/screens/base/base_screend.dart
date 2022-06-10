@@ -13,13 +13,12 @@ class BaseScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Provider(
-      create: (_) => PageManager(
-          pageController), //cria o objeto do provider passar o PageController
+      create: (_) => PageManager(pageController), //cria o objeto do provider passar o PageController
       child: PageView(
         controller: pageController,
         physics: const NeverScrollableScrollPhysics(),
         children: [
-          LoginScreen(),
+         LoginScreen(),
           Scaffold(
             drawer: CustomDrawer(),
             appBar: AppBar(
