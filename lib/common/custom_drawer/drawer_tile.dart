@@ -13,10 +13,8 @@ class DrawerTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final int curPage =
-        context.watch<PageManager>().page; // pega a pagina atual
-    final Color primaryColor = Theme.of(context)
-        .primaryColor; //pega cor primaria do app vindo da main.dart
+    final int curPage = context.watch<PageManager>().page; // pega a pagina atual
+    final Color primaryColor = Theme.of(context).primaryColor; //pega cor primaria do app vindo da main.dart
     return InkWell(
       onTap: () {
         context
