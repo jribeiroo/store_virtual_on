@@ -1,6 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../helpers/validators.dart';
+import '../../models/user_manager.dart';
+import '../../models/user_person.dart';
 
 class LoginScreen extends StatelessWidget {
  LoginScreen({Key? key}) : super(key: key);
@@ -70,7 +74,12 @@ class LoginScreen extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {
                         if(_formKey.currentState!.validate()){
-                          
+                         context.read<UserManager>().signIn( // pega o provider e faz login
+                          UserPerson( // recebe usuario com parametros do model e construtor
+                            email: emailController.text,
+                            password: passwordController.text,
+                          )
+                         );
                         }
                       },
                       child: const Text(
