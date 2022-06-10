@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -6,12 +5,18 @@ import '../../helpers/validators.dart';
 import '../../models/user_manager.dart';
 import '../../models/user_person.dart';
 
-class LoginScreen extends StatelessWidget {
- LoginScreen({Key? key}) : super(key: key);
+class LoginScreen extends StatefulWidget {
+ const LoginScreen({Key? key}) : super(key: key);
 
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   TextEditingController emailController = TextEditingController();
+
   TextEditingController passwordController = TextEditingController();
 
   @override
@@ -62,9 +67,11 @@ class LoginScreen extends StatelessWidget {
                   ),
                   Align(
                     alignment: Alignment.centerRight,
-                    child: FlatButton(
+                    child: TextButton(
                       onPressed: () {},
+                     style: TextButton.styleFrom(
                       padding: EdgeInsets.zero,
+                     ),
                       child: const Text('Esqueci minha senha' , style: TextStyle(color: Color.fromARGB(255, 68, 68, 68)),),
                     ),
                   ),
