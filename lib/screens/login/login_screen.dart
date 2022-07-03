@@ -1,13 +1,10 @@
-
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:store_virtual_pro/helpers/validators.dart';
 import 'package:store_virtual_pro/models/user_manager.dart';
 import 'package:store_virtual_pro/models/user_person.dart';
 
-
 class LoginScreen extends StatelessWidget {
-
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passController = TextEditingController();
 
@@ -36,21 +33,23 @@ class LoginScreen extends StatelessWidget {
                   decoration: const InputDecoration(hintText: 'E-mail'),
                   keyboardType: TextInputType.emailAddress,
                   autocorrect: false,
-                  validator: (email){
-                    if(!emailValid(email!)) {
+                  validator: (email) {
+                    if (!emailValid(email!)) {
                       return 'E-mail inválido';
                     }
                     return null;
                   },
                 ),
-                const SizedBox(height: 16,),
+                const SizedBox(
+                  height: 16,
+                ),
                 TextFormField(
                   controller: passController,
                   decoration: const InputDecoration(hintText: 'Senha'),
                   autocorrect: false,
                   obscureText: true,
-                  validator: (pass){
-                    if(pass!.isEmpty || pass.length < 6) {
+                  validator: (pass) {
+                    if (pass!.isEmpty || pass.length < 6) {
                       return 'Senha inválida';
                     }
                     return null;
@@ -59,51 +58,47 @@ class LoginScreen extends StatelessWidget {
                 Align(
                   alignment: Alignment.centerRight,
                   child: TextButton(
-                    onPressed: (){
-
-                    },
+                    onPressed: () {},
                     style: TextButton.styleFrom(
                       primary: const Color.fromARGB(255, 136, 136, 136),
                     ),
                     child: const Text(
-                      'Esqueci minha senha', 
+                      'Esqueci minha senha',
                       style: TextStyle(fontSize: 14),
                     ),
                   ),
                 ),
-                const SizedBox(height: 16,),
+                const SizedBox(
+                  height: 16,
+                ),
                 SizedBox(
                   height: 44,
                   child: RaisedButton(
-                    onPressed: (){
+                    onPressed: () {
                       FocusScope.of(context).requestFocus(FocusNode());
-                      if(formKey.currentState!.validate()){
+                      if (formKey.currentState!.validate()) {
                         context.read<UserManager>().signIn(
-                          userPerson: UserPerson(
-                            email: emailController.text,
-                            password: passController.text
-                          ),
-                          onFail: (e){
-                            scaffoldKey.currentState?.showSnackBar(
-                              SnackBar(
-                                content: Text('Falha ao entrar: $e'),
-                                backgroundColor: Colors.red,
-                              )
-                            );
-                          },
-                          onSuccess: (){
-                            // TODO: FECHAR TELA DE LOGIN
-                          }
-                        );
+                            userPerson: UserPerson(
+                                email: emailController.text,
+                                password: passController.text),
+                            onFail: (e) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text("login com erro $e"),
+                                  duration: const Duration(milliseconds: 300),
+                                ),
+                              );
+                            },
+                            onSuccess: (e) {
+
+                            },);
                       }
                     },
                     color: Theme.of(context).primaryColor,
                     textColor: Colors.white,
                     child: const Text(
                       'Entrar',
-                      style: TextStyle(
-                        fontSize: 18
-                      ),
+                      style: TextStyle(fontSize: 18),
                     ),
                   ),
                 )
