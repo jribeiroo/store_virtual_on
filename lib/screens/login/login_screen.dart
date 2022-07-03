@@ -37,8 +37,9 @@ class LoginScreen extends StatelessWidget {
                   keyboardType: TextInputType.emailAddress,
                   autocorrect: false,
                   validator: (email){
-                    if(!emailValid(email!))
+                    if(!emailValid(email!)) {
                       return 'E-mail inválido';
+                    }
                     return null;
                   },
                 ),
@@ -57,21 +58,26 @@ class LoginScreen extends StatelessWidget {
                 ),
                 Align(
                   alignment: Alignment.centerRight,
-                  child: FlatButton(
+                  child: TextButton(
                     onPressed: (){
 
                     },
-                    padding: EdgeInsets.zero,
+                    style: TextButton.styleFrom(
+                      primary: const Color.fromARGB(255, 94, 94, 94),
+                    ),
                     child: const Text(
-                      'Esqueci minha senha'
+                      'Esqueci minha senha', 
+                      style: TextStyle(fontSize: 14),
                     ),
                   ),
                 ),
                 const SizedBox(height: 16,),
                 SizedBox(
                   height: 44,
-                  child: RaisedButton(
+                  child: ElevatedButton(
                     onPressed: (){
+                      // ignore: unnecessary_new
+                      FocusScope.of(context).requestFocus(new FocusNode());
                       if(formKey.currentState!.validate()){
                         context.read<UserManager>().signIn(
                           userPerson: UserPerson(
@@ -79,7 +85,6 @@ class LoginScreen extends StatelessWidget {
                             password: passController.text
                           ),
                           onFail: (e){
-                            // ignore: deprecated_member_use
                             scaffoldKey.currentState?.showSnackBar(
                               SnackBar(
                                 content: Text('Falha ao entrar: $e'),
@@ -93,8 +98,6 @@ class LoginScreen extends StatelessWidget {
                         );
                       }
                     },
-                    color: Theme.of(context).primaryColor,
-                    textColor: Colors.white,
                     child: const Text(
                       'Entrar',
                       style: TextStyle(
