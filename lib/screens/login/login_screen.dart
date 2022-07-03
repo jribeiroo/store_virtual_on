@@ -63,7 +63,7 @@ class LoginScreen extends StatelessWidget {
 
                     },
                     style: TextButton.styleFrom(
-                      primary: const Color.fromARGB(255, 94, 94, 94),
+                      primary: const Color.fromARGB(255, 198, 243, 33),
                     ),
                     child: const Text(
                       'Esqueci minha senha', 
@@ -74,10 +74,8 @@ class LoginScreen extends StatelessWidget {
                 const SizedBox(height: 16,),
                 SizedBox(
                   height: 44,
-                  child: ElevatedButton(
+                  child: RaisedButton(
                     onPressed: (){
-                      // ignore: unnecessary_new
-                      FocusScope.of(context).requestFocus(new FocusNode());
                       if(formKey.currentState!.validate()){
                         context.read<UserManager>().signIn(
                           userPerson: UserPerson(
@@ -98,6 +96,8 @@ class LoginScreen extends StatelessWidget {
                         );
                       }
                     },
+                    color: Theme.of(context).primaryColor,
+                    textColor: Colors.white,
                     child: const Text(
                       'Entrar',
                       style: TextStyle(
