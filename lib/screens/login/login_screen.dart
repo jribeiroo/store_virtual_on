@@ -63,7 +63,7 @@ class LoginScreen extends StatelessWidget {
 
                     },
                     style: TextButton.styleFrom(
-                      primary: const Color.fromARGB(255, 198, 243, 33),
+                      primary: const Color.fromARGB(255, 136, 136, 136),
                     ),
                     child: const Text(
                       'Esqueci minha senha', 
@@ -76,6 +76,7 @@ class LoginScreen extends StatelessWidget {
                   height: 44,
                   child: RaisedButton(
                     onPressed: (){
+                      FocusScope.of(context).requestFocus(FocusNode());
                       if(formKey.currentState!.validate()){
                         context.read<UserManager>().signIn(
                           userPerson: UserPerson(
